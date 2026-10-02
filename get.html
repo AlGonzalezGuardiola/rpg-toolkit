@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Descarga RPG Toolkit 5e</title>
+<meta name="robots" content="noindex">
+<style>
+  :root{
+    --bg:#0B0F0E; --surface-1:#141A18; --text:#EDF2EE; --text-2:#93A29A;
+    --accent:#2FB39A; --accent-bright:#4FC6B0; --gold:#C9A34E;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;height:100%;background:var(--bg);color:var(--text);
+    font-family:'Manrope',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
+  body{display:flex;flex-direction:column;align-items:center;justify-content:center;
+    min-height:100%;padding:32px;text-align:center;gap:24px}
+  img.icon{width:96px;height:96px;border-radius:22px;box-shadow:0 12px 32px rgba(0,0,0,.5)}
+  h1{font-size:22px;margin:0;font-weight:700}
+  p{color:var(--text-2);margin:0;font-size:15px;max-width:320px}
+  .links{display:flex;flex-direction:column;gap:12px;width:100%;max-width:320px;margin-top:8px}
+  a.btn{display:block;padding:14px 20px;border-radius:14px;text-decoration:none;
+    font-weight:700;font-size:15px;transition:opacity .15s}
+  a.btn:active{opacity:.8}
+  a.ios{background:var(--text);color:var(--bg)}
+  a.android{background:var(--accent);color:var(--bg)}
+  .spinner{width:28px;height:28px;border:3px solid var(--surface-1);border-top-color:var(--accent);
+    border-radius:50%;animation:spin .8s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+</style>
+</head>
+<body>
+  <img class="icon" src="assets/img/logo.svg" alt="RPG Toolkit 5e" onerror="this.style.display='none'">
+  <div class="spinner" id="spinner"></div>
+  <h1>Abriendo tu tienda de apps…</h1>
+  <p>Si no pasa nada en un segundo, elige tu plataforma:</p>
+  <div class="links">
+    <a class="btn ios" href="https://apps.apple.com/app/id6798230024">Descargar para iPhone / iPad</a>
+    <a class="btn android" href="https://play.google.com/store/apps/details?id=cloud.algonzalez.charactersheet5e">Descargar para Android</a>
+  </div>
+
+<script>
+  var ua = navigator.userAgent || navigator.vendor || window.opera;
+  var APP_STORE = "https://apps.apple.com/app/id6798230024";
+  var PLAY_STORE = "https://play.google.com/store/apps/details?id=cloud.algonzalez.charactersheet5e";
+
+  var isIOS = /iPad|iPhone|iPod/.test(ua) && !window.MSStream;
+  var isAndroid = /android/i.test(ua);
+
+  if (isIOS) {
+    window.location.replace(APP_STORE);
+  } else if (isAndroid) {
+    window.location.replace(PLAY_STORE);
+  } else {
+    // Escritorio u otro dispositivo: nos quedamos en la página con los dos botones.
+    document.getElementById('spinner').style.display = 'none';
+  }
+</script>
+</body>
+</html>
